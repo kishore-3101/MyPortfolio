@@ -1,165 +1,230 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Kishore Kumar P</title>
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kishore Kumar P</title>
+  </head>
+  <body>
 
-  <!-- NAVIGATION -->
-  <header id="site-header" class="site-header">
-    <nav id="main-nav" class="main-nav">
-      <div class="nav-container">
+    <!-- NAVIGATION -->
+    <header id="site-header" class="site-header">
+      <nav id="main-nav" class="main-nav">
+        <div class="nav-container">
 
-        <a href="#home" class="nav-logo">Kishore<span class="nav-logo-accent">Kumar</span></a>
+          <a href="#home" class="nav-logo">Kishore<span class="nav-logo-accent">Kumar</span></a>
 
-        <ul class="nav-list">
-          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-          <li class="nav-item"><a href="#achievements" class="nav-link">Achievements</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
+          <ul class="nav-list" id="nav-list">
+            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+            <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+            <li class="nav-item"><a href="#achievements" class="nav-link">Achievements</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
 
-        <div class="nav-actions">
-          <a href="https://github.com/kishore-3101" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <img src="./assets/icons/github.png" alt="" class="nav-icon">
-          </a>
-          <a href="https://www.linkedin.com/in/kishore-kumar-b9a32a290/" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <img src="./assets/icons/linkedin.webp" alt="" class="nav-icon">
-          </a>
-          <a href="./assets/resume.pdf" class="nav-cta" target="_blank" rel="noopener noreferrer" download>
-            Resume <span class="nav-cta-arrow">&#8599;</span>
-          </a>
+            <!-- shown only inside the mobile dropdown -->
+            <li class="nav-item nav-item--mobile-only">
+              <a href="https://github.com/kishore-3101" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </li>
+            <li class="nav-item nav-item--mobile-only">
+              <a href="https://www.linkedin.com/in/kishore-kumar-b9a32a290/" class="nav-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </li>
+            <li class="nav-item nav-item--mobile-only">
+              <a href="./assets/resume.pdf" class="nav-link nav-link--resume" target="_blank" rel="noopener noreferrer" download>Resume &#8599;</a>
+            </li>
+          </ul>
+
+          <div class="nav-actions">
+            <a href="https://github.com/kishore-3101" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <img src="./assets/icons/github.png" alt="" class="nav-icon">
+            </a>
+            <a href="https://www.linkedin.com/in/kishore-kumar-b9a32a290/" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <img src="./assets/icons/linkedin.webp" alt="" class="nav-icon nav-icon--linkedin">
+            </a>
+            <a href="./assets/resume.pdf" class="nav-cta" target="_blank" rel="noopener noreferrer" download>
+              Resume <span class="nav-cta-arrow">&#8599;</span>
+            </a>
+          </div>
+
+          <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-list">
+            <span class="nav-toggle-dot"></span>
+            <span class="nav-toggle-dot"></span>
+            <span class="nav-toggle-dot"></span>
+          </button>
+
+        </div>
+      </nav>
+    </header> 
+
+    <!--  INTRO / ABOUT SECTION  -->
+    <section id="home" class="section intro-section">
+      <div class="intro-container">
+
+        <div class="intro-image-wrapper">
+          <img src="./assets/profile.jpg" alt="Kishore Kumar P profile photo" class="intro-image">
+        </div>
+
+        <div class="intro-text">
+          <span class="intro-badge">CYBERSECURITY &amp; FULL STACK</span>
+
+          <h1 class="intro-heading">
+            Kishore Kumar
+          </h1>
+
+          <p class="intro-paragraph">
+            I'm a B.E. Cybersecurity student at Chennai Institute of Technology and a freelance web developer
+            focused on building secure, scalable, and real-world applications.
+          </p>
+          <p class="intro-paragraph">
+            I work across web development, backend engineering, cybersecurity, and AI/ML, with a passion for
+            Linux, intelligent systems, and aerospace technology.
+          </p>
+
+          <div class="intro-cta-row">
+            <a href="#projects" class="intro-cta">
+              View My Work <span class="nav-cta-arrow">&#8599;</span>
+            </a>
+            <a href="./assets/resume.pdf" class="intro-cta intro-cta--outline" target="_blank" rel="noopener noreferrer" download>
+              Resume <span class="nav-cta-arrow">&#8599;</span>
+            </a>
+          </div>
+          
         </div>
 
       </div>
-    </nav>
-  </header>
+    </section>
 
-  <!--  INTRO / ABOUT SECTION  -->
-  <section id="home" class="section intro-section">
-    <div class="intro-container">
-
-      <div class="intro-image-wrapper">
-        <img src="./assets/profile.jpg" alt="Kishore Kumar P profile photo" class="intro-image">
+    <!--  PROFESSIONAL EXPERIENCE SECTION  -->
+    <section id="experience" class="section experience-section">
+      <div class="section-header">
+        <h2 class="section-title">Professional Experience</h2>
       </div>
+      <div class="experience-list">
+        <div class="experience-item">
+          <h3 class="experience-role">
+            Stephen Consulting And Ventures Pvt Ltd. &mdash; Full Stack Developer Intern
+          </h3>
+          <ul class="experience-description">
+            <li>Built an AI-powered PII Redaction System for Australian accounting documents using FastAPI, Ollama & PostgreSQL — hit 95% accuracy in automated document anonymization.</li>
+            <li>Designed a privacy-preserving document reconstruction pipeline, using hashed PII mappings to securely restore original content across multiple document formats.</li>
+            <li>Created wireframes for a business portfolio site, turning stakeholder requirements into clean, intuitive UI designs.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-      <div class="intro-text">
-        <span class="intro-badge">CYBERSECURITY &amp; FULL STACK</span>
+    <!--  PROJECTS SECTION  -->
+    <section id="projects" class="section projects-section">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="projects-list">
 
-        <h1 class="intro-heading">
-          Kishore Kumar 
-        </h1>
+        <div class="project-card" id="project-digital-twin">
+          <h3 class="project-title">Digital Twin &amp; Live Health Monitoring System for Turbojet Engine</h3>
+          <p class="project-description">
+            Built an Machine Learning model that predicts the health of the turbo jet engine by getting the raw sensor readings from turbo jet engine
+          </p>
+        </div>
 
-        <p class="intro-paragraph">
-          I'm a B.E. Cybersecurity student at Chennai Institute of Technology and a freelance web developer
-          focused on building secure, scalable, and real-world applications.
+        <div class="project-card" id="project-lab-inventory">
+          <h3 class="project-title">Lab Inventory Management System</h3>
+          <p class="project-description">
+            QR based asset Management system for laboratory for tracking and managing lab assets
+          </p>
+        </div>
+
+        <div class="project-card" id="project-expense-tracker">
+          <h3 class="project-title">Expense Tracker Application</h3>
+          <p class="project-description">
+            Expense tracker application for tracking daily expenses
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!--  ACHIEVEMENTS SECTION  -->
+    <section id="achievements" class="section achievements-section">
+      <div class="section-header">
+        <h2 class="section-title">Achievements</h2>
+      </div>
+      <div class="achievements-list">
+
+        <div class="achievement-card" id="achievement-aerothon">
+          <h3 class="achievement-title">Aerothon'26 &ndash; National Level Hackathon</h3>
+          <p class="achievement-description">
+            Top 25 Finalist among 2300+ participants from all over India, organised by Hindustan Aeronautics Limited.
+          </p>
+        </div>
+
+        <div class="achievement-card" id="achievement-unbound-creativity">
+          <h3 class="achievement-title">Unbound Creativity</h3>
+          <p class="achievement-description">
+            Finalist at Unbound Creativity Hackathon, organised by HackBriven.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="contact-content">
+        <span class="contact-badge">GET IN TOUCH</span>
+
+        <h3 class="contact-heading">Let's build something great together</h3>
+
+        <p class="contact-text">
+          Have a project in mind, an opportunity to discuss, or just want to talk tech?
+          I'm always open to interesting conversations — reach out through whichever
+          works best for you.
         </p>
-        <p class="intro-paragraph">
-          I work across web development, backend engineering, cybersecurity, and AI/ML, with a passion for
-          Linux, intelligent systems, and aerospace technology.
-        </p>
 
-        <a href="#projects" class="intro-cta">
-          View My Work <span class="nav-cta-arrow">&#8599;</span>
-        </a>
+        <div class="contact-buttons">
+          <a href="mailto:kishorekumarp.311@gmail.com" class="contact-btn contact-btn--email">
+            <img src="./assets/icons/email.svg" alt="" class="contact-btn-icon">
+            kishorekumarp.311@gmail.com
+          </a>
+
+          <a
+            href="https://wa.me/91XXXXXXXXXX?text=Hi%20Kishore%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect."
+            class="contact-btn contact-btn--whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./assets/icons/whatsapp.svg" alt="" class="contact-btn-icon">
+            WhatsApp Me
+          </a>
+
+          <a href="tel:+91XXXXXXXXXX" class="contact-btn contact-btn--phone">
+            <img src="./assets/icons/phone.svg" alt="" class="contact-btn-icon">
+            +91 XXXXX XXXXX
+          </a>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <script>
+      const navToggle = document.getElementById('nav-toggle');
+      const navList = document.getElementById('nav-list');
 
-  <!--  PROFESSIONAL EXPERIENCE SECTION  -->
-  <section id="experience" class="section experience-section">
-    <div class="section-header">
-      <h2 class="section-title">Professional Experience</h2>
-    </div>
-    <div class="experience-list">
-      <div class="experience-item">
-        <h3 class="experience-role">
-          Stephen Consulting And Ventures Pvt Ltd. &mdash; Full Stack Developer Intern
-        </h3>
-        <ul class="experience-description">
-          <li>Built an AI-powered PII Redaction System for Australian accounting documents using FastAPI, Ollama & PostgreSQL — hit 95% accuracy in automated document anonymization.</li>
-          <li>Designed a privacy-preserving document reconstruction pipeline, using hashed PII mappings to securely restore original content across multiple document formats.</li>
-          <li>Created wireframes for a business portfolio site, turning stakeholder requirements into clean, intuitive UI designs.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      navToggle.addEventListener('click', () => {
+        const isOpen = navList.classList.toggle('is-open');
+        navToggle.classList.toggle('is-open', isOpen);
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
 
-  <!--  PROJECTS SECTION  -->
-  <section id="projects" class="section projects-section">
-    <div class="section-header">
-      <h2 class="section-title">Projects</h2>
-    </div>
-    <div class="projects-list">
-
-      <div class="project-card" id="project-digital-twin">
-        <h3 class="project-title">Digital Twin &amp; Live Health Monitoring System for Turbojet Engine</h3>
-        <p class="project-description">
-          Built an Machine Learning model that predicts the health of the turbo jet engine by getting the raw sensor readings from turbo jet engine
-        </p>
-      </div>
-
-      <div class="project-card" id="project-lab-inventory">
-        <h3 class="project-title">Lab Inventory Management System</h3>
-        <p class="project-description">
-          QR based asset Management system for laboratory for tracking and managing lab assets
-        </p>
-      </div>
-
-      <div class="project-card" id="project-expense-tracker">
-        <h3 class="project-title">Expense Tracker Application</h3>
-        <p class="project-description">
-          Expense tracker application for tracking daily expenses
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!--  ACHIEVEMENTS SECTION  -->
-  <section id="achievements" class="section achievements-section">
-    <div class="section-header">
-      <h2 class="section-title">Achievements</h2>
-    </div>
-    <div class="achievements-list">
-
-      <div class="achievement-card" id="achievement-aerothon">
-        <h3 class="achievement-title">Aerothon'26 &ndash; National Level Hackathon</h3>
-        <p class="achievement-description">
-          Top 25 Finalist among 2300+ participants from all over India, organised by Hindustan Aeronautics Limited.
-        </p>
-      </div>
-
-      <div class="achievement-card" id="achievement-unbound-creativity">
-        <h3 class="achievement-title">Unbound Creativity</h3>
-        <p class="achievement-description">
-          Finalist at Unbound Creativity Hackathon, organised by HackBriven.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="section contact-section">
-    <div class="section-header">
-      <h2 class="section-title">Contact</h2>
-    </div>
-    <div class="contact-content">
-      <p>
-        Email:
-        <a href="mailto:kishorekumarp.311@gmail.com" class="contact-link">kishorekumarp.311@gmail.com</a>
-
-        Whatsapp : 
-        
-      </p>
-    </div>
-  </section>
-
-</body>
-</html>
+      navList.addEventListener('click', (e) => {
+        if (e.target.matches('.nav-link')) {
+          navList.classList.remove('is-open');
+          navToggle.classList.remove('is-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    </script>
+  </body>
+  </html>
