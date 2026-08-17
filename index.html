@@ -67,27 +67,38 @@
         </div>
 
         <div class="intro-text" data-reveal="right">
-          <span class="intro-badge">CYBERSECURITY &amp; FULL STACK</span>
+          <span class="intro-badge">FULL STACK DEVELOPER &amp; CYBERSECURITY ENTHUSIASIST</span>
 
           <h1 class="intro-heading">
             Kishore Kumar
           </h1>
 
           <p class="intro-paragraph">
-            I'm a B.E. Cybersecurity student at Chennai Institute of Technology and a freelance web developer
+            I'm a B.E. CSE (Cybersecurity) student at Chennai Institute of Technology and a freelance web developer
             focused on building secure, scalable, and real-world applications.
           </p>
+
           <p class="intro-paragraph">
             I work across web development, backend engineering, cybersecurity, and AI/ML, with a passion for
-            Linux, intelligent systems, and aerospace technology.
+            Linux and intelligent systems
+          </p>
+
+          <p class="intro-paragraph">
+            As a freelancer, I design and build interactive websites and web applications end-to-end —
+            from wireframes and UI design to backend architecture, database design, and deployment.
+          </p>
+
+          <p class="intro-paragraph">
+            Currently open to freelance projects and internship opportunities — if you have an idea,
+            a broken system, or a product that needs building, I'm happy to talk through it.
           </p>
 
           <div class="intro-cta-row">
             <a href="#projects" class="intro-cta">
               View My Work <span class="nav-cta-arrow">&#8599;</span>
             </a>
-            <a href="./assets/resume.pdf" class="intro-cta intro-cta--outline" target="_blank" rel="noopener noreferrer" download>
-              Resume <span class="nav-cta-arrow">&#8599;</span>
+            <a href="#contact" class="intro-cta intro-cta--outline">
+              Contact Me <span class="nav-cta-arrow">&#8599;</span>
             </a>
           </div>
           
@@ -107,10 +118,22 @@
             Stephen Consulting And Ventures Pvt Ltd. &mdash; Full Stack Developer Intern
           </h3>
           <ul class="experience-description">
-            <li>Built an AI-powered PII Redaction System for Australian accounting documents using FastAPI, Ollama & PostgreSQL — hit 95% accuracy in automated document anonymization.</li>
+            <li>Built an AI-powered PII Redaction System for Australian accounting documents using FastAPI, Ollama & PostgreSQL.</li>
             <li>Designed a privacy-preserving document reconstruction pipeline, using hashed PII mappings to securely restore original content across multiple document formats.</li>
+            <li>Integrated local LLM inference via Ollama to process sensitive documents entirely on-premise, avoiding third-party data exposure and meeting client compliance requirements.</li>
+            <li>Optimized document processing pipeline to handle batch uploads efficiently, reducing average processing time per document.</li>
+            <li>Collaborated with the team to design a PostgreSQL schema for tracking redaction mappings, audit logs, and document versioning.</li>
             <li>Created wireframes for a business portfolio site, turning stakeholder requirements into clean, intuitive UI designs.</li>
+            <li>Worked directly with stakeholders to gather requirements and iterate on features based on feedback across multiple review cycles.</li>
           </ul>
+
+          <div class="experience-tags">
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Ollama</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Python</span>
+          </div>
+
         </div>
       </div>
     </section>
@@ -122,11 +145,57 @@
       </div>
       <div class="projects-list" data-reveal-group>
 
-        <div class="project-card" id="project-digital-twin">
-          <h3 class="project-title">Digital Twin &amp; Live Health Monitoring System for Turbojet Engine</h3>
-          <p class="project-description">
-            Built an Machine Learning model that predicts the health of the turbo jet engine by getting the raw sensor readings from turbo jet engine
-          </p>
+        <div class="project-card project-card--featured" id="project-digital-twin">
+          <div class="featured-project-main">
+            <span class="featured-badge">★ FEATURED PROJECT</span>
+
+            <h3 class="featured-project-title"> SubAERO</h3>
+            <p class="featured-project-subtitle">AI-Powered Turbojet Engine Health Monitoring System</p>
+
+            <p class="project-description">
+              A machine learning-driven digital twin that predicts turbojet engine health in real time
+              by analyzing raw sensor readings — enabling predictive maintenance and early fault detection.
+            </p>
+
+            <div class="featured-project-actions">
+              <a href="https://null-pointers-aerothon-2026.vercel.app/" class="featured-btn featured-btn--primary" target="_blank" rel="noopener noreferrer">
+                Visit <span class="nav-cta-arrow">&#8599;</span>
+              </a>
+              <a href="https://github.com/Nithish-Bharathwaj-N/SubAERO" class="featured-btn featured-btn--outline" target="_blank" rel="noopener noreferrer">
+                GitHub Repo
+              </a>
+            </div>
+          </div>
+
+          <div class="featured-project-media">
+            <img src="./assets/projects/subaero.jpg" alt="Digital Twin dashboard screenshot" class="featured-project-img">
+          </div>
+          <div class="featured-tech-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Pandas</span>
+          </div>
+
+          <div class="featured-project-info">
+            <div class="featured-info-item">
+              <span class="featured-info-label">Domain</span>
+              <span class="featured-info-value">Aerospace • AI • Simulation</span>
+            </div>
+            <div class="featured-info-item">
+              <span class="featured-info-label">Role</span>
+              <span class="featured-info-value">Machine Learning</span>
+            </div>
+            <div class="featured-info-item">
+              <span class="featured-info-label">Duration</span>
+              <span class="featured-info-value">Jul 2026 – Present</span>
+            </div>
+            <div class="featured-info-item">
+              <span class="featured-info-label">Impact</span>
+              <span class="featured-info-value">Enables predictive maintenance and reduces unplanned engine downtime.</span>
+            </div>
+          </div>
         </div>
 
         <div class="project-card" id="project-lab-inventory">
@@ -134,13 +203,43 @@
           <p class="project-description">
             QR based asset Management system for laboratory for tracking and managing lab assets
           </p>
+
+          <div class="project-tech-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+
+          <div class="featured-project-actions">
+              <a href="https://github.com/kishore-3101/asset_chain" class="featured-btn featured-btn--outline" target="_blank" rel="noopener noreferrer">
+                GitHub Repo
+              </a>
+          </div>
+
         </div>
 
         <div class="project-card" id="project-expense-tracker">
           <h3 class="project-title">Expense Tracker Application</h3>
           <p class="project-description">
-            Expense tracker application for tracking daily expenses
+            A full-stack expense tracking application that helps users log, categorize, and visualize their daily spending
           </p>
+
+          <div class="project-tech-tags">
+            <span class="skill-tag">SpringBoot</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">MongoDB</span>
+          </div>
+
+          <div class="featured-project-actions">
+              <a href="https://kishore-3101.github.io/expense-tracker-frontend/auth.html" class="featured-btn featured-btn--primary" target="_blank" rel="noopener noreferrer">
+                Visit <span class="nav-cta-arrow">&#8599;</span>
+              </a>
+              <a href="https://github.com/kishore-3101/expense-tracker" class="featured-btn featured-btn--outline" target="_blank" rel="noopener noreferrer">
+                GitHub Repo
+              </a>
+          </div>
+
         </div>
 
       </div>
