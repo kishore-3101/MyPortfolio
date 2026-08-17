@@ -882,7 +882,7 @@ button:focus-visible,
   align-items: center;
   padding: 0.45rem 1rem;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(255, 255, 255);
   border: 1px solid var(--glass-border);
   color: var(--text-muted);
   font-size: 0.85rem;
@@ -1410,3 +1410,21 @@ button:focus-visible,
   border-bottom: none; /* remove border if you had one wrapping all sides */
 }
 
+.featured-project-media{
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff;
+}
+
+.skill-group::after {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.679);
+}
+
+.skill-group:hover::after {
+  -webkit-text-stroke: 1px rgba(190, 190, 190, 0.875);
+}
+
+.skill-tag{
+  background: #88888834;
+  color: var(--text-main);
+}
