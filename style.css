@@ -501,7 +501,7 @@ button:focus-visible,
 }
 
 .project-title {
-  color: var(--primary-red);
+  color: var(--text-main);
   font-size: 1.35rem;
   font-weight: 800;
   margin-bottom: 0.75rem;
@@ -517,7 +517,7 @@ button:focus-visible,
 
 .project-description,
 .achievement-description {
-  color: #fff;
+  color: var(--text-muted);
   font-size: 0.98rem;
 }
 .featured-project-description{
@@ -588,7 +588,7 @@ button:focus-visible,
 .featured-project-title {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 800;
-  color: var(--primary-red);
+  color: var(--text-main);
   margin-bottom: 0.35rem;
   text-shadow: 0 0 20px rgba(255, 42, 75, 0.25);
 }
@@ -1349,5 +1349,64 @@ button:focus-visible,
   .achievements-list {
     grid-template-columns: 1fr;
   }
+}
+
+.achievement-card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;              /* remove padding from the whole card */
+  overflow: hidden;        /* keeps the image corners clipped to the card's rounded radius */
+}
+
+.achievement-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 1.25rem;
+  border: none;
+  border-radius: 35px;        /* card's own border-radius + overflow:hidden handles the rounding now */
+}
+
+.achievement-title,
+.achievement-description {
+  padding: 0 2rem;         /* restore padding just for the text content */
+}
+
+.achievement-description {
+  padding-bottom: 2rem;    /* keep spacing at the bottom of the card */
+}
+
+.experience-item,
+.project-card,
+.achievement-card,
+.skill-group {
+  border: 5px solid var(--primary-red-glow);
+}
+
+.experience-item:hover,
+.project-card:hover,
+.achievement-card:hover,
+.skill-group:hover {
+  border-color: var(--primary-red);
+}
+
+.experience-item::before,
+.project-card::before,
+.achievement-card::before {
+  display: none;
+}
+
+.achievement-img {
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.achievement-img img {
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none; /* remove border if you had one wrapping all sides */
 }
 
