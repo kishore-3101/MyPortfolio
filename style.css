@@ -24,6 +24,14 @@
   /* fluid section padding */
   --section-pad-top: clamp(4.5rem, 8vw, 6rem);
   --section-pad-x: clamp(1.25rem, 4vw, 1.5rem);
+
+  /* card radius system (experience / project / achievement / skill cards) */
+  --card-radius: 50px;
+  --card-radius-sm: 50px;   /* mobile / tablet radius */
+  --card-border-w: 5px;
+  --card-pad: 10px;
+  --card-media-radius: calc(var(--card-radius) - var(--card-border-w) - var(--card-pad));
+  --card-media-radius-sm: calc(var(--card-radius-sm) - var(--card-border-w) - var(--card-pad));
 }
 
 *, *::before, *::after {
@@ -402,17 +410,18 @@ button:focus-visible,
   transform: translateY(-4px) scale(1.03);
 }
 
+/* Contact Me button — white by default, transparent on hover */
 .intro-cta--outline {
-  background: transparent;
-  border: 1px solid var(--glass-border-hover);
-  color: #fff;
+  background: #fff;
+  border: 1px solid #fff;
+  color: var(--bg-dark);
 }
 
 .intro-cta--outline:hover {
-  background: #fff;
-  border-color: #fff;
-  color: var(--bg-dark);
-  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.25);
+  background: transparent;
+  border-color: var(--glass-border-hover);
+  color: #fff;
+  box-shadow: 0 8px 30px var(--primary-red-glow);
   transform: translateY(-4px) scale(1.03);
 }
 
@@ -433,7 +442,7 @@ button:focus-visible,
 }
 
 /* ==========================================================================
-   GLASS CARDS (EXPERIENCE, PROJECTS, ACHIEVEMENTS)
+   GLASS CARDS (EXPERIENCE, PROJECTS, ACHIEVEMENTS, SKILLS)
    ========================================================================== */
 .experience-list { display: flex; flex-direction: column; gap: 1.5rem; }
 
@@ -447,12 +456,13 @@ button:focus-visible,
 
 .experience-item,
 .project-card,
-.achievement-card {
+.achievement-card,
+.skill-group {
   background: var(--bg-card);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius);
+  border: var(--card-border-w) solid var(--primary-red-glow);
+  border-radius: var(--card-radius);
   padding: 2rem;
   box-shadow: var(--glass-shadow);
   transition: transform 0.4s var(--ease-out),
@@ -462,34 +472,14 @@ button:focus-visible,
   overflow: hidden;
 }
 
-.experience-item::before,
-.project-card::before,
-.achievement-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--primary-red);
-  box-shadow: 0 0 10px var(--primary-red);
-  opacity: 0.5;
-  transition: var(--transition);
-}
-
 .experience-item:hover,
 .project-card:hover,
-.achievement-card:hover {
+.achievement-card:hover,
+.skill-group:hover {
   background: var(--bg-card-hover);
-  border-color: var(--glass-border-hover);
+  border-color: var(--primary-red);
   transform: translateY(-6px);
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 42, 75, 0.15);
-}
-
-.experience-item:hover::before,
-.project-card:hover::before,
-.achievement-card:hover::before {
-  opacity: 1;
 }
 
 .experience-role,
@@ -520,7 +510,7 @@ button:focus-visible,
   color: var(--text-muted);
   font-size: 0.98rem;
 }
-.featured-project-description{
+.featured-project-description {
   color: var(--text-muted);
 }
 
@@ -608,6 +598,7 @@ button:focus-visible,
   gap: 1rem;
   margin-top: auto;
   padding-top: 1.5rem;
+  border-radius: 70px;
 }
 
 .featured-project-media {
@@ -615,6 +606,7 @@ button:focus-visible,
   overflow: hidden;
   background: transparent;
   position: relative;
+  border: 2px solid #fff;
 }
 
 .featured-project-img {
@@ -760,18 +752,7 @@ button:focus-visible,
 
 .skill-group {
   counter-increment: skill-group;
-  background: var(--bg-card);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius);
   padding: 1.85rem 2rem;
-  box-shadow: var(--glass-shadow);
-  transition: transform 0.4s var(--ease-out),
-              box-shadow 0.4s var(--ease-out),
-              border-color 0.4s ease, background 0.4s ease;
-  position: relative;
-  overflow: hidden;
   opacity: 0;
   animation: skill-group-in 0.6s var(--ease-out) forwards;
 }
@@ -820,21 +801,14 @@ button:focus-visible,
   font-size: 3rem;
   font-weight: 800;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 42, 75, 0.18);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.679);
   line-height: 1;
   pointer-events: none;
   transition: var(--transition);
 }
 
-.skill-group:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--glass-border-hover);
-  transform: translateY(-6px);
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 42, 75, 0.18);
-}
-
 .skill-group:hover::after {
-  -webkit-text-stroke: 1px rgba(255, 42, 75, 0.45);
+  -webkit-text-stroke: 1px rgba(190, 190, 190, 0.875);
   transform: scale(1.05);
 }
 
@@ -882,9 +856,9 @@ button:focus-visible,
   align-items: center;
   padding: 0.45rem 1rem;
   border-radius: 100px;
-  background: rgb(255, 255, 255);
+  background: #88888834;
   border: 1px solid var(--glass-border);
-  color: var(--text-muted);
+  color: var(--text-main);
   font-size: 0.85rem;
   font-weight: 500;
   overflow: hidden;
@@ -916,17 +890,25 @@ button:focus-visible,
 .skill-tag:active { transform: translateY(-1px) scale(0.98); }
 
 /* ==========================================================================
-   ACHIEVEMENT IMAGES
+   ACHIEVEMENTS SECTION — 3 per row, image radius locked to card radius
    ========================================================================== */
-.achievement-card { display: flex; flex-direction: column; }
+.achievements-list {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.achievement-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--card-pad);
+  overflow: hidden; /* clips image to the card's rounded corners */
+}
 
 .achievement-img {
   width: 100%;
   aspect-ratio: 16 / 10;
-  border-radius: calc(var(--radius) + 4px);
-  overflow: hidden;
   margin-bottom: 1.25rem;
-  border: 1px solid var(--glass-border);
+  border: none;
+  border-radius: var(--card-media-radius);
   position: relative;
 }
 
@@ -936,12 +918,22 @@ button:focus-visible,
   height: 100%;
   object-fit: cover;
   filter: grayscale(20%) contrast(1.05);
+  border-radius: var(--card-media-radius);
   transition: transform 0.6s var(--ease-out), filter 0.4s ease;
 }
 
 .achievement-card:hover .achievement-img img {
   filter: grayscale(0%) contrast(1.1);
   transform: scale(1.08);
+}
+
+.achievement-title,
+.achievement-description {
+  padding: 0 2rem;
+}
+
+.achievement-description {
+  padding-bottom: 2rem;
 }
 
 /* ==========================================================================
@@ -993,6 +985,7 @@ button:focus-visible,
   text-shadow: 0 0 10px var(--primary-red-glow);
 }
 
+/* Contact buttons — single source of truth (colored variants) */
 .contact-buttons {
   display: flex;
   justify-content: center;
@@ -1011,10 +1004,12 @@ button:focus-visible,
   border-radius: 100px;
   font-weight: 600;
   font-size: 0.95rem;
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.35s var(--ease-out),
               box-shadow 0.35s var(--ease-out),
-              background 0.3s ease, color 0.3s ease;
-  border: 1px solid transparent;
+              background 0.3s ease;
 }
 
 .contact-btn-icon {
@@ -1025,46 +1020,38 @@ button:focus-visible,
 }
 
 .contact-btn:hover .contact-btn-icon { transform: scale(1.15) rotate(-6deg); }
+.contact-btn:hover { transform: translateY(-3px); }
 
 .contact-btn--email {
-  background: rgba(255, 42, 75, 0.12);
-  border-color: var(--glass-border-hover);
-  color: #fff;
+  background: #b40000;
 }
-
 .contact-btn--email:hover {
-  background: var(--primary-red);
-  color: #fff;
-  box-shadow: 0 8px 24px var(--primary-red-glow);
-  transform: translateY(-3px);
+  background: #8f0000;
+  box-shadow: 0 8px 24px rgba(180, 0, 0, 0.45);
 }
 
 .contact-btn--whatsapp {
-  background: rgba(37, 211, 102, 0.1);
-  border-color: rgba(37, 211, 102, 0.3);
-  color: #25d366;
+  background: #079b3d;
 }
-
 .contact-btn--whatsapp:hover {
-  background: #25d366;
-  color: #000;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-  transform: translateY(-3px);
+  background: #067d32;
+  box-shadow: 0 8px 24px rgba(7, 155, 61, 0.45);
 }
-
-.contact-btn--whatsapp:hover .contact-btn-icon { filter: invert(0); }
 
 .contact-btn--phone {
-  background: rgba(255, 42, 75, 0.1);
-  border-color: var(--glass-border);
-  color: var(--primary-red);
+  background: #0f0062;
+}
+.contact-btn--phone:hover {
+  background: #0a0047;
+  box-shadow: 0 8px 24px rgba(15, 0, 98, 0.5);
 }
 
-.contact-btn--phone:hover {
-  background: var(--primary-red);
-  color: #fff;
-  box-shadow: 0 8px 24px var(--primary-red-glow);
-  transform: translateY(-3px);
+.contact-btn--form {
+  background: #ff9d00;
+}
+.contact-btn--form:hover {
+  background: #e08a00;
+  box-shadow: 0 8px 24px rgba(255, 157, 0, 0.45);
 }
 
 /* ==========================================================================
@@ -1203,6 +1190,10 @@ button:focus-visible,
   }
 
   .intro-image-wrapper { width: 320px; }
+
+  .achievements-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Tablets */
@@ -1212,7 +1203,7 @@ button:focus-visible,
   .section-title::after { left: 50%; transform: translateX(-50%); }
   .section-header { text-align: center; }
   .skills-list { grid-template-columns: 1fr; }
-  .projects-list,
+  .projects-list { grid-template-columns: repeat(2, 1fr); }
   .achievements-list { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -1274,7 +1265,7 @@ button:focus-visible,
 
   .intro-image-wrapper { width: 100%; max-width: 260px; margin: 0 auto; border-radius: var(--radius-sm); }
 
-  .projects-list,
+  .projects-list { grid-template-columns: 1fr; }
   .achievements-list { grid-template-columns: 1fr; }
 
   .contact-content { padding: 2.5rem 1.5rem; }
@@ -1290,16 +1281,47 @@ button:focus-visible,
 
   .experience-item,
   .project-card,
-  .achievement-card { padding: 1.5rem; border-radius: var(--radius-sm); }
+  .achievement-card,
+  .skill-group {
+    padding: 1.5rem;
+    border-width: var(--card-border-w); /* keep the same border weight on mobile */
+    border-radius: var(--card-radius-sm);
+  }
 
-  .achievement-img { border-radius: calc(var(--radius-sm) + 4px); }
+  .achievement-card {
+    padding: var(--card-pad); /* achievement card keeps its tight image padding */
+  }
+
+  .achievement-img,
+  .achievement-img img {
+    border-radius: var(--card-media-radius-sm);
+  }
+
+  .achievement-title,
+  .achievement-description {
+    padding: 0 1.25rem;
+  }
+
+  .achievement-description {
+    padding-bottom: 1.5rem;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-btn--email {
+    font-size: 0.85rem;
+  }
 }
 
 /* Small phones */
 @media (max-width: 480px) {
-  .contact-buttons { flex-direction: column; }
-  .contact-btn { width: 100%; justify-content: center; }
-  .contact-btn--email { font-size: 0.85rem; }
   .achievement-img { aspect-ratio: 16 / 9; }
   .intro-cta-row { flex-direction: column; align-items: stretch; }
   .intro-cta,
@@ -1315,116 +1337,6 @@ button:focus-visible,
   .nav-cta-arrow { display: none; }
 }
 
-/* ==========================================================================
-   CONTACT ME BUTTON (intro/about section) — white by default, transparent on hover
-   ========================================================================== */
-.intro-cta--outline {
-  background: #fff;
-  border: 1px solid #fff;
-  color: var(--bg-dark);
-}
-
-.intro-cta--outline:hover {
-  background: transparent;
-  border-color: var(--glass-border-hover);
-  color: #fff;
-  box-shadow: 0 8px 30px var(--primary-red-glow);
-  transform: translateY(-4px) scale(1.03);
-}
-
-/* ==========================================================================
-   ACHIEVEMENTS — 3 cards per row
-   ========================================================================== */
-.achievements-list {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-@media (max-width: 900px) {
-  .achievements-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .achievements-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-.achievement-card {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;              /* remove padding from the whole card */
-  overflow: hidden;        /* keeps the image corners clipped to the card's rounded radius */
-}
-
-.achievement-img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  margin-bottom: 1.25rem;
-  border: none;
-  border-radius: 35px;        /* card's own border-radius + overflow:hidden handles the rounding now */
-}
-
-.achievement-title,
-.achievement-description {
-  padding: 0 2rem;         /* restore padding just for the text content */
-}
-
-.achievement-description {
-  padding-bottom: 2rem;    /* keep spacing at the bottom of the card */
-}
-
-.experience-item,
-.project-card,
-.achievement-card,
-.skill-group {
-  border: 5px solid var(--primary-red-glow);
-}
-
-.experience-item:hover,
-.project-card:hover,
-.achievement-card:hover,
-.skill-group:hover {
-  border-color: var(--primary-red);
-}
-
-.experience-item::before,
-.project-card::before,
-.achievement-card::before {
-  display: none;
-}
-
-.achievement-img {
-  border-top-left-radius: 35px;
-  border-top-right-radius: 35px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.achievement-img img {
-  border-top-left-radius: 35px;
-  border-top-right-radius: 35px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom: none; /* remove border if you had one wrapping all sides */
-}
-
-.featured-project-media{
-  border-width: 2px;
-  border-style: solid;
-  border-color: #ffffff;
-}
-
-.skill-group::after {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.679);
-}
-
-.skill-group:hover::after {
-  -webkit-text-stroke: 1px rgba(190, 190, 190, 0.875);
-}
-
-.skill-tag{
-  background: #88888834;
-  color: var(--text-main);
+section[id] {
+  scroll-margin-top: 80px; /* match your header's height */
 }
