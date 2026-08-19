@@ -428,6 +428,18 @@
         });
       });
 
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.location.hash) {
+          const targetId = window.location.hash.slice(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'instant', block: 'start' });
+          }
+          // Strip the hash without adding a new history entry
+          history.replaceState(null, '', window.location.pathname);
+        }
+      });
+
     </script>
   </body>
   </html>
