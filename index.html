@@ -22,7 +22,7 @@
             <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
             <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
             <li class="nav-item"><a href="#achievements" class="nav-link">Achievements</a></li>
-            <li class="nav-item"><a href="./contact/contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
 
             <!-- shown only inside the mobile dropdown -->
             <li class="nav-item nav-item--mobile-only">
@@ -97,7 +97,7 @@
             <a href="#projects" class="intro-cta">
               View My Work <span class="nav-cta-arrow">&#8599;</span>
             </a>
-            <a href="./contact/contact.html" class="intro-cta intro-cta--outline">
+            <a href="/contact/" class="intro-cta intro-cta--outline">
               Contact Me <span class="nav-cta-arrow">&#8599;</span>
             </a>
           </div>
@@ -372,6 +372,12 @@
             <img src="./assets/icons/phone.svg" alt="" class="contact-btn-icon">
             +91 72004 05785
           </a>
+
+          <a href="/contact/" class="contact-btn contact-btn--form">
+            <img src="./assets/icons/send.svg" alt="" class="contact-btn-icon">
+            Send an Enquiry
+          </a>
+
         </div>
       </div>
     </section>
@@ -394,7 +400,6 @@
         }
       });
 
-      // Scroll reveal animations
       const revealEls = document.querySelectorAll('[data-reveal], [data-reveal-group]');
 
       const revealObserver = new IntersectionObserver((entries) => {
@@ -410,6 +415,19 @@
       });
 
       revealEls.forEach((el) => revealObserver.observe(el));
+
+      // Smooth in-page navigation without adding to browser history
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const targetId = link.getAttribute('href').slice(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
     </script>
   </body>
   </html>
