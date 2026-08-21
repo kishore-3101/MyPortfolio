@@ -9,7 +9,7 @@ const app=express();
 const resend=new Resend(process.env.RESEND_API_KEY);
 
 app.use(cors({
-    origin: 'https://kishorekumarp.me'
+    origin: ['https://kishorekumarp.me', 'https://www.kishorekumarp.me']
 }));
 
 app.use(express.json());
