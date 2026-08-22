@@ -16,6 +16,13 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "..")));
 
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        status: "ok",
+        message: "Backend is running"
+    });
+});
+
 app.post("/api/contact", async (req, res) =>{
     try{
         const {name, email, whatsapp, phone, subject, message} = req.body;
