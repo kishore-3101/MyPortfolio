@@ -16,7 +16,9 @@
     <nav id="main-nav" class="main-nav">
       <div class="nav-container">
 
-        <a href="/#home" class="nav-logo">Kishore<span class="nav-logo-accent">Kumar</span></a>
+        <a href="/#home" class="nav-logo">
+          Kishore<span class="nav-logo-accent">Kumar</span>
+        </a>
 
         <ul class="nav-list" id="nav-list">
           <li class="nav-item"><a href="/#home" class="nav-link">Home</a></li>
@@ -25,12 +27,6 @@
           <li class="nav-item"><a href="/#achievements" class="nav-link">Achievements</a></li>
           <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
 
-          <li class="nav-item nav-item--mobile-only">
-            <a href="https://github.com/kishore-3101" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </li>
-          <li class="nav-item nav-item--mobile-only">
-            <a href="https://www.linkedin.com/in/kishore-kumar-b9a32a290/" class="nav-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </li>
           <li class="nav-item nav-item--mobile-only">
             <a href="../assets/resume.pdf" class="nav-link nav-link--resume" target="_blank" rel="noopener noreferrer" download>Resume &#8599;</a>
           </li>
@@ -201,6 +197,7 @@
   <script>
     const navToggle = document.getElementById('nav-toggle');
     const navList = document.getElementById('nav-list');
+    const mainNav = document.getElementById('main-nav');
 
     navToggle.addEventListener('click', () => {
       const isOpen = navList.classList.toggle('is-open');
@@ -210,6 +207,16 @@
 
     navList.addEventListener('click', (e) => {
       if (e.target.matches('.nav-link')) {
+        navList.classList.remove('is-open');
+        navToggle.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close the mobile nav when tapping/clicking anywhere outside the nav
+    document.addEventListener('click', (e) => {
+      const isClickInsideNav = mainNav.contains(e.target);
+      if (navList.classList.contains('is-open') && !isClickInsideNav) {
         navList.classList.remove('is-open');
         navToggle.classList.remove('is-open');
         navToggle.setAttribute('aria-expanded', 'false');

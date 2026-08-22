@@ -773,7 +773,9 @@ button:focus-visible,
   inset: 0;
   padding: 1px;
   border-radius: var(--radius);
-  background: linear-gradient(120deg, transparent 20%, var(--primary-red) 50%, transparent 80%);
+  background: linear-gradient(120deg, transparent 20%, var(--primary-red) 50%, transparent git add -A
+git commit -m "refactor: remove old contact page"
+git push80%);
   background-size: 250% 250%;
   background-position: 0% 0%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
