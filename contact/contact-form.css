@@ -54,8 +54,9 @@
   line-height: 1.15;
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin: 0 0 18px;
+  margin: 0 auto 32px;
   max-width: 18ch;
+  text-align: center;
   color: var(--cf-text);
 }
 
@@ -64,7 +65,8 @@
   font-size: 1.05rem;
   line-height: 1.7;
   max-width: 56ch;
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .form-intro {
@@ -72,7 +74,8 @@
   font-size: 0.98rem;
   line-height: 1.7;
   max-width: 62ch;
-  margin: 22px 0 52px;
+  margin: 22px auto 52px;
+  text-align: center;
 }
 
 /* ---------- Single unified card — info left, form right ---------- */
@@ -287,6 +290,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 11px;
   padding: 9px 12px;
   border-radius: 9px;
