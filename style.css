@@ -773,9 +773,7 @@ button:focus-visible,
   inset: 0;
   padding: 1px;
   border-radius: var(--radius);
-  background: linear-gradient(120deg, transparent 20%, var(--primary-red) 50%, transparent git add -A
-git commit -m "refactor: remove old contact page"
-git push80%);
+  background: linear-gradient(120deg, transparent 20%, var(--primary-red) 50%, transparent 80%);
   background-size: 250% 250%;
   background-position: 0% 0%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -1170,47 +1168,9 @@ git push80%);
    RESPONSIVE DESIGN
    ========================================================================== */
 
-/* Large tablets / small laptops */
+/* Large tablets / small laptops — nav now collapses to hamburger here too,
+   so the Resume button + full link list never overflow the pill */
 @media (max-width: 1024px) {
-  .project-card--featured {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "main"
-      "media"
-      "tags"
-      "info";
-  }
-
-  .featured-project-info {
-    border-left: none;
-    border-top: 1px solid var(--glass-border);
-    padding-left: 0;
-    padding-top: 1.5rem;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
-  .intro-image-wrapper { width: 320px; }
-
-  .achievements-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Tablets */
-@media (max-width: 900px) {
-  .intro-container { flex-direction: column; text-align: center; gap: 2.5rem; }
-  .intro-cta-row { justify-content: center; }
-  .section-title::after { left: 50%; transform: translateX(-50%); }
-  .section-header { text-align: center; }
-  .skills-list { grid-template-columns: 1fr; }
-  .projects-list { grid-template-columns: repeat(2, 1fr); }
-  .achievements-list { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* Phones / narrow tablets */
-@media (max-width: 768px) {
   .site-header { padding: 0.75rem 0; }
   .nav-container { padding: 0.6rem 1rem; }
   .nav-list { display: none; }
@@ -1265,6 +1225,46 @@ git push80%);
   .nav-item--mobile-only { display: block; }
   .nav-link--resume { color: var(--primary-red); font-weight: 700; }
 
+  .project-card--featured {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "media"
+      "tags"
+      "info";
+  }
+
+  .featured-project-info {
+    border-left: none;
+    border-top: 1px solid var(--glass-border);
+    padding-left: 0;
+    padding-top: 1.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .intro-image-wrapper { width: 320px; }
+
+  .achievements-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .intro-container { flex-direction: column; align-items: center; text-align: center; gap: 2.5rem; }
+  .intro-image-wrapper { align-self: center; }
+  .intro-cta-row { justify-content: center; }
+  .section-title::after { left: 50%; transform: translateX(-50%); }
+  .section-header { text-align: center; }
+  .skills-list { grid-template-columns: 1fr; }
+  .projects-list { grid-template-columns: repeat(2, 1fr); }
+  .achievements-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Phones / narrow tablets */
+@media (max-width: 768px) {
   .intro-image-wrapper { width: 100%; max-width: 260px; margin: 0 auto; border-radius: var(--radius-sm); }
 
   .projects-list { grid-template-columns: 1fr; }
