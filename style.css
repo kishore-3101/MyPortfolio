@@ -893,7 +893,7 @@ button:focus-visible,
    ACHIEVEMENTS SECTION — 3 per row, image radius locked to card radius
    ========================================================================== */
 .achievements-list {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .achievement-card {
