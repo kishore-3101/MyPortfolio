@@ -34,19 +34,19 @@ export default function Navbar() {
     setIsOpen(false);
   }, [location.pathname]);
 
-  const handleNavClick = (e, targetHash) => {
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
     setIsOpen(false);
     if (location.pathname === '/') {
-      e.preventDefault();
-      const targetId = targetHash.replace('#', '');
       const targetEl = document.getElementById(targetId);
       if (targetEl) {
         targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+      if (window.location.hash) {
+        window.history.replaceState(null, '', '/');
+      }
     } else {
-      // If on another page like /contact, navigate to / with hash
-      e.preventDefault();
-      navigate('/' + targetHash);
+      navigate('/', { state: { scrollTo: targetId } });
     }
   };
 
@@ -55,9 +55,9 @@ export default function Navbar() {
       <nav id="main-nav" className="main-nav" ref={mainNavRef}>
         <div className="nav-container">
           <Link
-            to="/#home"
+            to="/"
             className="nav-logo"
-            onClick={(e) => handleNavClick(e, '#home')}
+            onClick={(e) => handleNavClick(e, 'home')}
           >
             Kishore<span className="nav-logo-accent">Kumar</span>
           </Link>
@@ -65,36 +65,36 @@ export default function Navbar() {
           <ul className={`nav-list ${isOpen ? 'is-open' : ''}`} id="nav-list">
             <li className="nav-item">
               <Link
-                to="/#home"
+                to="/"
                 className="nav-link"
-                onClick={(e) => handleNavClick(e, '#home')}
+                onClick={(e) => handleNavClick(e, 'home')}
               >
                 Home
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                to="/#experience"
+                to="/"
                 className="nav-link"
-                onClick={(e) => handleNavClick(e, '#experience')}
+                onClick={(e) => handleNavClick(e, 'experience')}
               >
                 Experience
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                to="/#projects"
+                to="/"
                 className="nav-link"
-                onClick={(e) => handleNavClick(e, '#projects')}
+                onClick={(e) => handleNavClick(e, 'projects')}
               >
                 Projects
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                to="/#achievements"
+                to="/"
                 className="nav-link"
-                onClick={(e) => handleNavClick(e, '#achievements')}
+                onClick={(e) => handleNavClick(e, 'achievements')}
               >
                 Achievements
               </Link>

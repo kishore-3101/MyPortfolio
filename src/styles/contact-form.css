@@ -65,7 +65,7 @@
   font-size: 1.05rem;
   line-height: 1.7;
   max-width: 56ch;
-  margin: 0 auto;
+  margin: 0 auto 2.5rem;
   text-align: center;
 }
 
@@ -354,6 +354,10 @@
   --btn-rgb: 10, 102, 194;
 }
 
+.contact-btn--form {
+  --btn-rgb: 255, 145, 0;
+}
+
 .form-side-footer {
   display: flex;
   flex-direction: column;
@@ -459,6 +463,10 @@
 }
 
 .contact-btn--linkedin .contact-btn-icon {
+  filter: none;
+}
+
+.contact-btn--form .contact-btn-icon {
   filter: none;
 }
 

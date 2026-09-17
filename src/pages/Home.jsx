@@ -7,18 +7,21 @@ export default function Home() {
   useScrollReveal();
 
   useEffect(() => {
-    if (location.hash) {
-      const targetId = location.hash.replace('#', '');
+    const targetId = location.state?.scrollTo || (location.hash ? location.hash.replace('#', '') : null);
+    if (targetId) {
       const targetEl = document.getElementById(targetId);
       if (targetEl) {
         setTimeout(() => {
           targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
       }
+      if (location.hash) {
+        window.history.replaceState(null, '', '/');
+      }
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [location.hash, location.pathname]);
+  }, [location.state, location.hash, location.pathname]);
 
   return (
     <main>
@@ -61,7 +64,14 @@ export default function Home() {
             </p>
 
             <div className="intro-cta-row">
-              <a href="#projects" className="intro-cta">
+              <a
+                href="#projects"
+                className="intro-cta"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 View My Work <span className="nav-cta-arrow">&#8599;</span>
               </a>
               <Link to="/contact" className="intro-cta intro-cta--outline">
